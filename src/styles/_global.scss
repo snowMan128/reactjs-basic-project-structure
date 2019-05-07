@@ -1,0 +1,59 @@
+h1, h2, h3, h4, h5, h6, button, input, div, select, textarea, a, label, *:not(i) {
+  font-family: "CUSTOM_FONT_FAMILY", Tahoma, serif;
+}
+
+.rtl-scrollbar > div:first-child {
+  margin-right: 0 !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.d-ltr {
+  direction: ltr;
+}
+
+.d-rtl {
+  direction: rtl;
+}
+
+.scrollable-x {
+  overflow-x: scroll;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.cursor-p {
+  cursor: pointer;
+}

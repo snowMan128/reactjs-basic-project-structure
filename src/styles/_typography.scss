@@ -1,0 +1,19 @@
+//@font-face {
+//  font-family: 'IRANSans';
+//  font-style: normal;
+//  font-weight: bold;
+//  src: url('../_fonts/eot/IRANSansWeb_Bold.eot');
+//  src: url('../_fonts/eot/IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+//  url('../_fonts/woff2/IRANSansWeb_Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+//  url('../_fonts/woff/IRANSansWeb_Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+//  url('../_fonts/ttf/IRANSansWeb_Bold.ttf') format('truetype');
+//}
+
+h1, h2, h3, h4, h5, h6, button, input, div, select, textarea, a, small, strong, span, section, article {
+  font-family: "CUSTOM_FONT_FAMILY", Tahoma, serif;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: "CUSTOM_FONT_FAMILY", Tahoma, serif !important;
+
+}
