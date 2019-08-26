@@ -3,7 +3,7 @@ import {Route, Redirect} from 'react-router-dom';
 import {authService} from "../services/auth.service";
 import NProgress from 'nprogress'
 
-class PrivateRoute extends Component {
+class PrivateRouteHandler extends Component {
     componentWillMount() {
         NProgress.start()
     }
@@ -43,4 +43,4 @@ class PrivateRoute extends Component {
 
 }
 
-export default PrivateRoute
+export default PrivateRouteHandler

@@ -8,7 +8,7 @@ import {history, routes} from "./utils";
 import MainHeader from "./components/main-header";
 import MainSidebar from "./components/main-sidebar";
 import {settingsActions} from "./actions/settings.actions";
-import PrivateRoute from "./components/private-route";
+import PrivateRouteHandler from "./components/private-route-handler";
 import cx from "classnames";
 
 function App(props) {
@@ -44,7 +44,7 @@ function App(props) {
     const renderSwitch = () => (
         <Switch>
             {routes.map((route, key) => {
-                return <PrivateRoute {...route} path={route.path} key={key}
+                return <PrivateRouteHandler {...route} path={route.path} key={key}
                                      exact={route.exact} component={route.component}/>;
             })}
         </Switch>
