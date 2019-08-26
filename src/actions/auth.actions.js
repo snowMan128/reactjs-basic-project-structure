@@ -39,13 +39,13 @@ function loginAttempt(email, password, submitBtnRef = null) {
                     axios.defaults.headers.common['Content-Type'] = 'application/json';
 
 
-                    toasts.success('ورود موفق!');
+                    toasts.success('Successful login!');
                     history.push('/');
                 } else {
                     if (response.status === 200)
-                        toasts.error('این حساب کاربری فعال نیست!');
+                        toasts.error('Not Activated!');
                     else
-                        toasts.error('مدیری با این مشخصات وجود ندارد!');
+                        toasts.error('Not Exist!');
                     submitBtnRef.classList.remove('loading')
 
                 }
@@ -56,9 +56,9 @@ function loginAttempt(email, password, submitBtnRef = null) {
                 submitBtnRef.classList.remove('loading')
                 console.log(err);
                 if (err.response && err.response.status === 401)
-                    toasts.error('مدیری با این مشخصات وجود ندارد!');
+                    toasts.error('Not Exist!');
                 else
-                    toasts.error('خطای فنی در ورود به حساب! لطفا با پشتیبانی تماس بگیرید.');
+                    toasts.error('Login Error.');
 
             })
     }
