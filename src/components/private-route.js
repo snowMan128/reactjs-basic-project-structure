@@ -1,32 +1,46 @@
-import React, {useEffect} from 'react';
+import React, {Component} from 'react';
 import {Route, Redirect} from 'react-router-dom';
 import {authService} from "../services/auth.service";
 import NProgress from 'nprogress'
 
-function PrivateRoute({component: Component, ...rest}) {
-    const isAuthenticated = authService.isAuthenticated();
+class PrivateRoute extends Component {
+    componentWillMount() {
+        NProgress.start()
+    }
 
-    console.log(isAuthenticated);
+    componentDidMount() {
+        NProgress.done()
+    }
 
-    //n-progress start and stop handling
-    useEffect(() => {
-        NProgress.start();
-    });
+    renderRoutes = (props) => {
+        const {component: Component, private: isPrivate, redirectOnAuth, ...rest} = this.props
+        const isAuthenticated = authService.isAuthenticated();
 
-    useEffect(() => {
-        NProgress.done();
-    }, []);
+        if (isAuthenticated) {
+            if (isPrivate || (!isPrivate && !redirectOnAuth))
+                return <Component data={rest.data} {...props} />
+            else if (!isPrivate && redirectOnAuth)
+                return "Redirected to public component"
 
-    return (
-        <Route {...rest} render={props => {
+        } else if (!isAuthenticated) {
+            if (isPrivate) {
+                return <Redirect to={{pathname: '/login', state: {from: props.location}}}/>
 
-            return (
-                isAuthenticated
-                    ? <Component data={rest} {...props} />
-                    : <Redirect to={{pathname: '/login', state: {from: props.location}}}/>
-            )
-        }}/>
-    )
+            } else if (!isPrivate) {
+                return <Component data={rest.data} {...props} />
+            }
+        }
+
+    }
+
+    render() {
+        const {component: Component, ...rest} = this.props
+
+        return (
+            <Route {...rest} render={this.renderRoutes}/>
+        )
+    }
+
 }
 
 export default PrivateRoute

@@ -10,21 +10,23 @@ export const routes = [
         component: LoginPage,
         exact: true,
         private: false,
-        title: 'ورود'
+        redirectOnAuth: true,
+        title: 'Login',
     },
     {
         path: '/register',
         component: RegisterPage,
         exact: true,
         private: false,
-        title: 'ورود'
+        redirectOnAuth: true,
+        title: 'Register'
     },
     {
         path: '/',
         component: Dashboard,
         exact: true,
         private: true,
-        title: 'در یک نگاه'
+        title: 'Dashboard'
     },
 
 ]

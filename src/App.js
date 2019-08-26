@@ -9,6 +9,7 @@ import MainHeader from "./components/main-header";
 import MainSidebar from "./components/main-sidebar";
 import {settingsActions} from "./actions/settings.actions";
 import PrivateRoute from "./components/private-route";
+import cx from "classnames";
 
 function App(props) {
 
@@ -19,6 +20,7 @@ function App(props) {
         const {dispatch} = props;
         dispatch(authActions.setLoggedIn(authService.isAuthenticated()))
 
+        // set document title on route enter
         routes.map(route => {
             if (route.path === location.pathname)
                 dispatch(settingsActions.setCurrentPageTitle(route.title))
@@ -26,6 +28,7 @@ function App(props) {
             return route
         })
 
+        // change document title on route change
         history.listen((location, action) => {
 
             routes.map(route => {
@@ -38,39 +41,28 @@ function App(props) {
         })
     }, [])
 
+    const renderSwitch = () => (
+        <Switch>
+            {routes.map((route, key) => {
+                return <PrivateRoute {...route} path={route.path} key={key}
+                                     exact={route.exact} component={route.component}/>;
+            })}
+        </Switch>
+    )
 
     return (
-        <div className={"app-root" + (main_sidebar_close ? ' sidebar-close' : '')}>
+        <div className={cx("app-root", main_sidebar_close && 'sidebar-close')}>
             {isAuthenticated &&
             <React.Fragment>
                 <MainHeader title={page_title}/>
                 <MainSidebar/>
                 <main className="main-content">
-                    <Switch>
-                        {routes.map((route, key) => {
-                            if (route.private)
-                                return <PrivateRoute {...route.data} path={route.path} key={key}
-                                                     exact={route.exact}
-                                                     component={route.component}/>;
-                            else
-                                return <Route path={route.path} key={key} exact={route.exact}
-                                              component={route.component}/>;
-                        })}
-                    </Switch>
+                    {renderSwitch()}
                 </main>
             </React.Fragment>}
 
-            {!isAuthenticated &&
-            <Switch>
-                {routes.map((route, key) => {
-                    if (route.private)
-                        return <PrivateRoute path={route.path} key={key} exact={route.exact}
-                                             component={route.component}/>;
-                    else
-                        return <Route path={route.path} key={key} exact={route.exact}
-                                      component={route.component}/>;
-                })}
-            </Switch>}
+            {!isAuthenticated && renderSwitch()}
+
             <ToastContainer/>
         </div>
     );
