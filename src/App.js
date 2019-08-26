@@ -18,7 +18,8 @@ function App(props) {
     useEffect(() => {
 
         const {dispatch} = props;
-        dispatch(authActions.setLoggedIn(authService.isAuthenticated()))
+        // dispatch(authActions.setLoggedIn(authService.isAuthenticated()))
+        dispatch(authActions.setLoggedIn(true))
 
         // set document title on route enter
         routes.map(route => {
@@ -45,7 +46,7 @@ function App(props) {
         <Switch>
             {routes.map((route, key) => {
                 return <PrivateRouteHandler {...route} path={route.path} key={key}
-                                     exact={route.exact} component={route.component}/>;
+                                            exact={route.exact} component={route.component}/>;
             })}
         </Switch>
     )
@@ -56,12 +57,10 @@ function App(props) {
             <React.Fragment>
                 <MainHeader title={page_title}/>
                 <MainSidebar/>
-                <main className="main-content">
-                    {renderSwitch()}
-                </main>
             </React.Fragment>}
-
-            {!isAuthenticated && renderSwitch()}
+            <main className="main-content">
+                {renderSwitch()}
+            </main>
 
             <ToastContainer/>
         </div>

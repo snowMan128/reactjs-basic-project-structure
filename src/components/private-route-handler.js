@@ -14,13 +14,14 @@ class PrivateRouteHandler extends Component {
 
     renderRoutes = (props) => {
         const {component: Component, private: isPrivate, redirectOnAuth, ...rest} = this.props
-        const isAuthenticated = authService.isAuthenticated();
+        const isAuthenticated =true// authService.isAuthenticated();
 
         if (isAuthenticated) {
             if (isPrivate || (!isPrivate && !redirectOnAuth))
                 return <Component data={rest.data} {...props} />
             else if (!isPrivate && redirectOnAuth)
-                return "Redirected to public component"
+                return <Redirect to={{pathname: '/', state: {from: props.location}}}/>
+               // return "Redirected to public component"
 
         } else if (!isAuthenticated) {
             if (isPrivate) {

@@ -19,7 +19,7 @@ export class Navigation extends Component {
                 )
         });
         return (items &&
-            <nav className="navigation" style={{direction: "rtl"}}>
+            <nav className="navigation">
                 <ul>
                     {items}
                 </ul>

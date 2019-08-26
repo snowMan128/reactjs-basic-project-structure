@@ -86,10 +86,10 @@ function MainSidebar({main_sidebar_close, dispatch}) {
                 <h3 className="sidebar-title">{appConstants.APP_NAME}</h3>
                 <Scrollbars
                     autoHide
-                    className="rtl-scrollbar"
+                    className="main-scrollbar"
                     autoHideTimeout={300}
                     autoHideDuration={200}
-                    style={{height: "calc(100% - 90px)"}}>
+                    style={{height: "200px"}}>
                     <Navigation items={menuItems}/>
                 </Scrollbars>
                 <footer>

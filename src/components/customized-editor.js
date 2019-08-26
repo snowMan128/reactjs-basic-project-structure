@@ -68,7 +68,7 @@ function CustomizedEditor({
                 wrapperClassName={cx("html-editor-wrapper", wrapperClassName)}
                 textAlignment="right"
                 placeholder={placeholder}
-                textDirectionality="RTL"
+                textDirectionality="LTR"
                 editorClassName={cx("html-editor", editorClassName)}
                 handleKeyCommand={handleKeyCommand}
                 stripPastedStyles={true}
