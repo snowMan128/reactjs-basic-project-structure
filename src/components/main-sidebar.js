@@ -15,7 +15,7 @@ function MainSidebar({main_sidebar_close, dispatch}) {
             icon: 'th',
             path: '/',
         }, {
-            title: 'Separator',
+            title: 'S1',
             divider: true
         }, {
             title: 'Item 2',
@@ -30,24 +30,24 @@ function MainSidebar({main_sidebar_close, dispatch}) {
         }, {
             title: 'Item 3',
             icon: 'lightbulb outline',
-            path: '/consultations',
+            path: '/i3',
         }, {
             title: 'Item 4',
             icon: 'lightbulb outline',
             corner_icon: 'plus',
-            path: '/consultations/new',
+            path: '/i4',
         }, {
             title: 'S4',
             divider: true
         }, {
-            title: 'Users',
+            title: 'Item 4-1',
             icon: 'users',
-            path: '/users',
+            path: '/i4',
         }, {
             title: 'Item 5',
             icon: 'users',
             corner_icon: 'plus',
-            path: '/users/new',
+            path: '/i5',
         }, {
             title: 'S5',
             divider: true
@@ -55,17 +55,17 @@ function MainSidebar({main_sidebar_close, dispatch}) {
         {
             title: 'Item 6',
             icon: 'file image',
-            path: '/media',
+            path: '/i6',
         }, {
             title: 'Item 7',
             icon: 'copy outline',
             child: [
                 {
-                    title: 'S I 1',
-                    path: '/blog',
+                    title: 'Item 7.1',
+                    path: '/i71',
                 }, {
-                    title: 'S I 2',
-                    path: '/blog/new',
+                    title: 'Item 7.2',
+                    path: '/i72',
                 },
             ]
         },

@@ -5,6 +5,8 @@
 
 import React, {useState, useEffect} from "react"
 
+/** this method should have separate file
+ * it's just for test */
 const testServices = {
     getAllTests: () => {
     }
