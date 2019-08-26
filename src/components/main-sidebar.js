@@ -11,100 +11,61 @@ function MainSidebar({main_sidebar_close, dispatch}) {
 
     const menuItems = [
         {
-            title: 'آیتم یک',
+            title: 'Item 1',
             icon: 'th',
             path: '/',
         }, {
-            title: 'جدا کننده',
+            title: 'Separator',
             divider: true
         }, {
-            title: 'رزومه‌ها',
+            title: 'Item 2',
             icon: 'users',
-            path: '/resumes',
+            path: '/i2',
         }, {
-            title: 'کاریابی',
+            title: 'S2',
+            divider: true
+        },  {
+            title: 'S3',
             divider: true
         }, {
-            title: 'فرصت‌های شغلی',
-            icon: 'users',
-            path: '/jobs',
-        }, {
-            title: 'افزودن فرصت جدید',
-            icon: 'users',
-            path: '/jobs/new',
-        }, {
-            title: 'مشاوره',
-            divider: true
-        }, {
-            title: 'درخواست‌های مشاوره',
+            title: 'Item 3',
             icon: 'lightbulb outline',
             path: '/consultations',
         }, {
-            title: 'ثبت مشاوره جدید',
+            title: 'Item 4',
             icon: 'lightbulb outline',
             corner_icon: 'plus',
             path: '/consultations/new',
         }, {
-            title: 'اعضا',
+            title: 'S4',
             divider: true
         }, {
-            title: 'کاربران',
+            title: 'Users',
             icon: 'users',
             path: '/users',
         }, {
-            title: 'افزودن کاربر جدید',
+            title: 'Item 5',
             icon: 'users',
             corner_icon: 'plus',
             path: '/users/new',
         }, {
-            title: 'مدیریت محتوا',
+            title: 'S5',
             divider: true
         },
         {
-            title: 'مدیا و فایل‌ها',
+            title: 'Item 6',
             icon: 'file image',
             path: '/media',
         }, {
-            title: 'بلاگ',
+            title: 'Item 7',
             icon: 'copy outline',
             child: [
                 {
-                    title: 'مشاهده مطالب',
+                    title: 'S I 1',
                     path: '/blog',
                 }, {
-                    title: 'افزودن مطلب جدید',
+                    title: 'S I 2',
                     path: '/blog/new',
-                }, {
-                    title: 'نظرات',
-                    path: '/blog/comments',
-                }, {
-                    title: 'دسته بندی‌ها',
-                    path: '/blog/categories',
-                }
-            ]
-        }, {
-            title: 'برگه‌ها',
-            icon: 'copy outline',
-            child: [
-                {
-                    title: 'مشاهده همه',
-                    path: '/pages',
-                }, {
-                    title: 'افزودن برگه جدید',
-                    path: '/pages/new',
-                },
-            ]
-        }, {
-            title: 'برگه‌های ایستا',
-            icon: 'copy outline',
-            child: [
-                {
-                    title: 'درباره ما',
-                    path: '/static/about',
-                },
-                {
-                    title: 'تماس با ما',
-                    path: '/static/contact',
                 },
             ]
         },
